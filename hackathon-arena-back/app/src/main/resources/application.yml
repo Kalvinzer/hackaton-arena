@@ -1,0 +1,21 @@
+spring:
+  docker:
+    compose:
+      lifecycle-management: start-and-stop
+      enabled: true
+      file: app/docker/docker-compose.yml
+  config:
+    import: optional:file:.env[.properties]
+
+server:
+  servlet:
+    contextPath: ${REST_API_PREFIX}
+
+database:
+  postgres:
+    host: ${POSTGRES_HOST}
+    url: ${POSTGRES_URL}
+    port: ${POSTGRES_PORT}
+    user: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    database: ${POSTGRES_DB}
